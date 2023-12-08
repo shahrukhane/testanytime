@@ -1,0 +1,21 @@
+name: Example Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Set URL for Stage
+        run: |
+          # Set URL with stage name as an environment variable
+          echo "STAGE_URL=https://example.com/stage" >> $GITHUB_ENV
+
+      - name: Display URL for Stage
+        run: |
+          # Retrieve URL from environment variable and display it
+          echo "URL for Stage: $STAGE_URL"
