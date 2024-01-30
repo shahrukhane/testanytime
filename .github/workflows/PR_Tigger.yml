@@ -11,4 +11,4 @@ jobs:
       - name: Print PR information
         run: |
           echo "Pull Request Title: ${{ github.event.pull_request.title }}"
-          echo "Pull Request Number: ${{ github.event.pull_request.number }}"
+          echo "Pull Request Number: PR-${{ github.event.pull_request.number }}.testdomian.com"
