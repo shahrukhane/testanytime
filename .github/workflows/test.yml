@@ -1,17 +1,21 @@
-name: Display Details After Job Finish
+name: Example Workflow
 
 on:
-  workflow_run:
-    workflows: ["test"] # Replace with the name of your workflow
-    types:
-      - completed
+  push:
+    branches:
+      - main
 
 jobs:
-  display_details:
+  build:
     runs-on: ubuntu-latest
-    
+
     steps:
-      - name: Print Job Finish Details
+      - name: Set URL for Stage
         run: |
-          echo "Job finished successfully!"
-          echo "Additional details here."
+          # Set URL with stage name as an environment variable
+          echo "STAGE_URL=https://example.com/stage" >> $GITHUB_ENV
+      - name: Display URL for Stage
+        run: |
+          # Retrieve URL from environment variable and display it
+          echo "URL for Stage: $STAGE_URL"
+          echo "### Hello world! :rocket:" >> $GITHUB_STEP_SUMMARY
