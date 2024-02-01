@@ -23,3 +23,4 @@ jobs:
           # Retrieve URL from environment variable and display it
           PR_URL="pr-${{ github.event.pull_request.number }}.example.com"
           echo "### Deployment is Successful and Now can access app with subdomain [${PR_URL}](http://${PR_URL}) :rocket:" >> $GITHUB_STEP_SUMMARY
+          echo "### Note: URL will be accessible after 5 mint from deployment" >> $GITHUB_STEP_SUMMARY
